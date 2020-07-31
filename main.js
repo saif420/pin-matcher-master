@@ -1,57 +1,81 @@
-document.getElementById("left").style.display = 'none';
+document.getElementById('try-left').style.display = 'none';
 
-// generate pin handler
 
-const  generateBtn = document.getElementById("generate-pin").addEventListener("click",function(){
-    let randomNewNumber = Math.floor(1000 + Math.random() * 9000);
-    let inputPin =  document.getElementById("generate-number").Value = randomNewNumber;
-})
+        // generate Pin by random numbers
 
-// funcation for input pin
+        const generateBtn=document.getElementById('generate-pin').addEventListener('click', function(){
+        var randomNewNumber= Math.floor(1000 + Math.random() * 9000);
+        let inputPin=document.getElementById('random-number').value=randomNewNumber;
+          
+        })
 
-document.getElementById("generate-pin").Value;
-document.getElementById("screen-pin").Value;
-let result = document.getElementById("generate-pin");
 
-function button(num){
-    let inputPin = result;
-    inputPin.Value +=num;
-}
+        // function for inputSecondPin 
+       document.getElementById('screen-input').value;
+       document.getElementById('generate-pin').value;
+        const resultView = document.getElementById('screen-input');
+        
+        function button(num){
+        var inputSecondPin= resultView;
+        inputSecondPin.value +=num;
+        }
 
-// funcation  back 
+       
+       
 
-function back(){
-    let screen = document.getElementById("screen-pin").Value;
-    let back = screen.slice( 0, -1);
-    document.getElementById("screen-pin").Value = back;
-}
-// funcation cancel 
 
-function cancel( ) {
-    let screen = document.getElementById("screen-pin").Value;
-    let cancel = ("");
-    document.getElementById("screen-pin").Value = cancel;
-    document.getElementById("pin-matched").style.display = 'none';
-    document.getElementById("pin-wrong").style.display = 'none';
+        // function for backspace 
 
-}
+            function backspace(){
+                var screen=document.getElementById('screen-input').value;
+                var backspace=screen.slice(0,  -1 );
+                document.getElementById('screen-input').value=backspace;
+            }
 
-// funcation pin macthing
 
-let screen = document.getElementById("screen-pin").Value;
-let submitBtn=document.getElementById('submit-button');
-submitBtn.addEventListener("click",function(){
-    let randomValue = document.getElementById("generate-number").Value;
-    let totalResult = result.Value;
+
+            // function for buttonCancel
+            function buttonCancel( ){
+
+                var screen=document.getElementById('screen-input').value;
+                var buttonCancel=('');
+                document.getElementById('screen-input').value=buttonCancel;
+                document.getElementById('pin-matched').style.display = 'none';
+                document.getElementById('pin-wrong').style.display = 'none';
+               
+            }
+
+
+            // pin matching 
+           var screenInput= document.getElementById('screen-input');
+            
+            const submitBtn=document.getElementById('submit-button');
+
+            submitBtn.addEventListener('click' , function(){
+
+                const randomValue = document.getElementById('random-number').value;
+                
+                const resultPublic = resultView.value;
+
+                var matched = document.getElementById('pin-matched');
+                 var notMatched = document.getElementById('pin-wrong');
+
+                if(resultPublic === randomValue){
+               
+                  matched.style.display='block'; 
+                 
+                }
+
+             else{
+               
+                matched.style.display = 'none';
+                notMatched.style.display = 'block';
+             }
+
     
-    let matched = document.getElementById("pin-matched");
-    let wrong = document.getElementById("pin-wrong");
-    
-    if (totalResult == randomValue) {
-        matched.style.display='block';
-    }
-    else{
-        matched.style.display='none';
-        wrong.style.display='block';
-    }
-})
+             })
+
+            
+            
+                
+          

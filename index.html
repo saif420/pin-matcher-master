@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +13,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input id="generate-number" class="form-control" type="text">
+                    <input id="random-number" class="form-control" type="text" >
                     <button id="generate-pin" class="generate-btn">Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
-                    <input id="screen-pin" class="form-control" type="text">
+                    <input class="form-control" type="text" id="screen-input">
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row">
@@ -37,12 +38,12 @@
                               <div class="button" onclick="button('3')">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button" onclick="back()"><</div>
-                                <div class="button" onclick="button('3')">0</div>
-                                <div class="button" onclick="Cancel('')">C</div>
+                                <div class="button" onclick="backspace()"><</div>
+                                <div class="button" onclick="button('0')">0</div>
+                                <div class="button" onclick="buttonCancel('')">C</div>
                             </div>
                             <div>
-                                <button type="submit" id="submit-button" class="submit-btn">Submit</button>
+                                <button id="submit-button" type="submit" class="submit-btn">Submit</button>
                                 <p id="left" class="action-left">3 try left</p>
                             </div>
                     </div>
@@ -54,6 +55,73 @@
             <p id="pin-matched" class="notify">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
-    <script src="main.js"></script>
+    <script>
+
+        document.getElementById('left').style.display = 'none';
+
+        // generte Pin by random numbers
+
+        const generateBtn=document.getElementById('generate-pin').addEventListener('click', function(){
+        var randomNewNumber= Math.floor(1000 + Math.random() * 9000);
+        let inputPin=document.getElementById('random-number').value=randomNewNumber;
+          
+        })
+
+        // function for inputSecondPin 
+
+       document.getElementById('screen-input').value;
+       document.getElementById('generate-pin').value;
+        const resultView = document.getElementById('screen-input');
+
+        function button(num){
+        var inputSecondPin= resultView;
+        inputSecondPin.value +=num;
+        }
+        // function for backspace 
+            function backspace(){
+                var screen=document.getElementById('screen-input').value;
+                var backspace=screen.slice(0,  -1 );
+                document.getElementById('screen-input').value=backspace;
+            }
+            // function for buttonCancel
+            function buttonCancel( ){
+                var screen=document.getElementById('screen-input').value;
+                var buttonCancel=('');
+                document.getElementById('screen-input').value=buttonCancel;
+                document.getElementById('pin-matched').style.display = 'none';
+                document.getElementById('pin-wrong').style.display = 'none';
+               
+            }
+            // pin matching 
+           var screenInput= document.getElementById('screen-input');
+            const submitBtn=document.getElementById('submit-button');
+            submitBtn.addEventListener('click' , function(){
+                const randomValue = document.getElementById('random-number').value;
+                const resultPublic = resultView.value;
+                var matched = document.getElementById('pin-matched');
+                 var notMatched = document.getElementById('pin-wrong');
+                if(resultPublic === randomValue){
+                  matched.style.display='block'; 
+                }
+             else{
+                matched.style.display = 'none';
+                notMatched.style.display = 'block';
+             }
+             })
+
+            
+            
+
+
+    </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

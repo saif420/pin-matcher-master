@@ -1,4 +1,6 @@
 document.getElementById('left').style.display = 'none';
+document.getElementById('pin-matched').style.display = 'none';
+document.getElementById('pin-wrong').style.display = 'none';
 
         // generte Pin by random numbers
 

@@ -20,22 +20,25 @@ document.getElementById('pin-wrong').style.display = 'none';
         var inputSecondPin= resultView;
         inputSecondPin.value +=num;
         }
+
         // function for backspace 
+
             function backspace(){
                 var screen=document.getElementById('screen-input').value;
                 var backspace=screen.slice(0,  -1 );
                 document.getElementById('screen-input').value=backspace;
             }
+
             // function for buttonCancel
+
             function buttonCancel( ){
                 var screen=document.getElementById('screen-input').value;
                 var buttonCancel=('');
                 document.getElementById('screen-input').value=buttonCancel;
-                document.getElementById('pin-matched').style.display = 'none';
-                document.getElementById('pin-wrong').style.display = 'none';
-               
             }
+
             // pin matching 
+            
            var screenInput= document.getElementById('screen-input');
             const submitBtn=document.getElementById('submit-button');
             submitBtn.addEventListener('click' , function(){
